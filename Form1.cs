@@ -12,11 +12,32 @@ namespace Converter
 {
     public partial class Form1 : Form
     {
+        private ConverterClass converter;
         public Form1()
         {
             InitializeComponent();
+            converter = new ConverterClass();
+            foreach(String item in converter.getUnitTypes())
+            {
+                cbUnit.Items.Add(item);
+            }
         }
 
-        
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            double result = converter.convert(cbFrom.SelectedItem.ToString(), cbTo.SelectedItem.ToString(), Convert.ToDouble(tbValue.Text));
+            tbConvertedValue.Text = result.ToString();
+        }
+
+        private void cbUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbFrom.Items.Clear();
+            cbTo.Items.Clear();
+            foreach (String item in converter.getUnits(cbUnit.SelectedItem.ToString()))
+            {
+                cbFrom.Items.Add(item);
+                cbTo.Items.Add(item);
+            }
+        }
     }
 }

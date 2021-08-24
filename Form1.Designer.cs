@@ -1,4 +1,4 @@
-﻿
+
 namespace Converter
 {
     partial class Form1
@@ -67,6 +67,7 @@ namespace Converter
             this.btnConvert.TabIndex = 2;
             this.btnConvert.Text = "Convert";
             this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // cbFrom
             // 
@@ -91,6 +92,7 @@ namespace Converter
             this.cbUnit.Name = "cbUnit";
             this.cbUnit.Size = new System.Drawing.Size(118, 21);
             this.cbUnit.TabIndex = 6;
+            this.cbUnit.SelectedIndexChanged += new System.EventHandler(this.cbUnit_SelectedIndexChanged);
             // 
             // label1
             // 
