@@ -8,34 +8,45 @@ namespace Converter
 {
     class ConverterClass
     {
-        private Dictionary<String, List<String>> unitsDictionary;
+        private Dictionary<String, List<Unit>> unitsDictionary;
+        private Unit unitObject;
         public ConverterClass()
         {
-            unitsDictionary = new Dictionary<string, List<string>>();
-
-            List<String> lengthUnits = new List<String>();
-            lengthUnits.Add("cm");
-            lengthUnits.Add("m");
-            lengthUnits.Add("km");
+            unitsDictionary = new Dictionary<string, List<Unit>>();
+            
+            List<Unit> lengthUnits = new List<Unit>();
+            unitObject = new Unit("cm", 0.01);
+            lengthUnits.Add(unitObject);
+            unitObject = new Unit("m", 1);
+            lengthUnits.Add(unitObject);
+            unitObject = new Unit("km", 1000);
+            lengthUnits.Add(unitObject);
             unitsDictionary.Add("Length", lengthUnits);
 
-            List<String> weightUnits = new List<String>();
-            weightUnits.Add("g");
-            weightUnits.Add("kg");
-            weightUnits.Add("t");
+            List<Unit> weightUnits = new List<Unit>();
+            unitObject = new Unit("g", 0.001);
+            weightUnits.Add(unitObject);
+            unitObject = new Unit("kg", 1);
+            weightUnits.Add(unitObject);
+            unitObject = new Unit("t", 1000);
+            weightUnits.Add(unitObject);
             unitsDictionary.Add("Weight", weightUnits);
         }
         public List<String> getUnitTypes() 
         {
             return unitsDictionary.Keys.ToList();
         }
-        public List<String> getUnits(String unitType) 
+        public List<Unit> getUnits(String unitType) 
         {
             return unitsDictionary[unitType];
         }
-        public double convert(String fromUnit, String toUnit, double value) 
+        public double convert(String fromUnit, String toUnit, double value, string selectedUnitType) 
         {
-            return value * 2;
+            if (selectedUnitType == "Length")
+            {
+                return 1;
+            }
+            return 2;
         }
     }
 }

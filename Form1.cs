@@ -25,7 +25,8 @@ namespace Converter
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            double result = converter.convert(cbFrom.SelectedItem.ToString(), cbTo.SelectedItem.ToString(), Convert.ToDouble(tbValue.Text));
+            String selectedUnitType = cbUnit.SelectedItem.ToString();
+            double result = converter.convert(cbFrom.SelectedItem.ToString(), cbTo.SelectedItem.ToString(), Convert.ToDouble(tbValue.Text), selectedUnitType);
             tbConvertedValue.Text = result.ToString();
         }
 
@@ -33,7 +34,7 @@ namespace Converter
         {
             cbFrom.Items.Clear();
             cbTo.Items.Clear();
-            foreach (String item in converter.getUnits(cbUnit.SelectedItem.ToString()))
+            foreach (Unit item in converter.getUnits(cbUnit.SelectedItem.ToString()))
             {
                 cbFrom.Items.Add(item);
                 cbTo.Items.Add(item);
