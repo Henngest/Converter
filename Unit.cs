@@ -8,8 +8,8 @@ namespace Converter
 {
     class Unit
     {
-        private string name { get; set; }
-        private double multiplier { get; set; }
+        public string name { get; set; }
+        public double multiplier { get; set; }
         public Unit() { }
         public Unit(string name, double multiplier)
         {

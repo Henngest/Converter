@@ -42,11 +42,32 @@ namespace Converter
         }
         public double convert(String fromUnit, String toUnit, double value, string selectedUnitType) 
         {
+            double result = 0;
+            double tempMultiplier = 0;
+            double tempDenominator = 0;
             if (selectedUnitType == "Length")
             {
-                return 1;
+                foreach (Unit unit in unitsDictionary["Length"])
+                {
+                    if (unit.name == fromUnit)
+                        tempMultiplier = unit.multiplier;
+                    if (unit.name == toUnit)
+                        tempDenominator = unit.multiplier;
+                }
+                return result = value * tempMultiplier / tempDenominator;
             }
-            return 2;
+            else if (selectedUnitType == "Weight")
+            {
+                foreach (Unit unit in unitsDictionary["Weight"])
+                {
+                    if (unit.name == fromUnit)
+                        tempMultiplier = unit.multiplier;
+                    if (unit.name == toUnit)
+                        tempDenominator = unit.multiplier;
+                }
+                return result = value * tempMultiplier / tempDenominator;
+            }
+            return 0;
         }
     }
 }
