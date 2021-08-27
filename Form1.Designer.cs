@@ -30,6 +30,7 @@ namespace Converter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tbValue = new System.Windows.Forms.TextBox();
             this.tbConvertedValue = new System.Windows.Forms.TextBox();
             this.btnConvert = new System.Windows.Forms.Button();
@@ -46,6 +47,8 @@ namespace Converter
             this.epTo = new System.Windows.Forms.ErrorProvider(this.components);
             this.epFrom = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSwap = new System.Windows.Forms.Button();
+            this.lbTitle = new System.Windows.Forms.Label();
+            this.lbSubtitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epTo)).BeginInit();
@@ -175,11 +178,33 @@ namespace Converter
             this.btnSwap.UseVisualStyleBackColor = true;
             this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
             // 
+            // lbTitle
+            // 
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.Location = new System.Drawing.Point(156, 29);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(182, 42);
+            this.lbTitle.TabIndex = 13;
+            this.lbTitle.Text = "Converter";
+            // 
+            // lbSubtitle
+            // 
+            this.lbSubtitle.AutoSize = true;
+            this.lbSubtitle.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubtitle.Location = new System.Drawing.Point(277, 66);
+            this.lbSubtitle.Name = "lbSubtitle";
+            this.lbSubtitle.Size = new System.Drawing.Size(105, 15);
+            this.lbSubtitle.TabIndex = 14;
+            this.lbSubtitle.Text = "by Filip Danilovski";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 285);
+            this.Controls.Add(this.lbSubtitle);
+            this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.btnSwap);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -192,8 +217,9 @@ namespace Converter
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.tbConvertedValue);
             this.Controls.Add(this.tbValue);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Converter";
             ((System.ComponentModel.ISupportInitialize)(this.epUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epTo)).EndInit();
@@ -221,6 +247,8 @@ namespace Converter
         private System.Windows.Forms.ErrorProvider epTo;
         private System.Windows.Forms.ErrorProvider epFrom;
         private System.Windows.Forms.Button btnSwap;
+        private System.Windows.Forms.Label lbTitle;
+        private System.Windows.Forms.Label lbSubtitle;
     }
 }
 
