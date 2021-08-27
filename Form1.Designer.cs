@@ -45,6 +45,7 @@ namespace Converter
             this.epValue = new System.Windows.Forms.ErrorProvider(this.components);
             this.epTo = new System.Windows.Forms.ErrorProvider(this.components);
             this.epFrom = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnSwap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.epUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epTo)).BeginInit();
@@ -164,11 +165,22 @@ namespace Converter
             // 
             this.epFrom.ContainerControl = this;
             // 
+            // btnSwap
+            // 
+            this.btnSwap.Location = new System.Drawing.Point(213, 204);
+            this.btnSwap.Name = "btnSwap";
+            this.btnSwap.Size = new System.Drawing.Size(79, 28);
+            this.btnSwap.TabIndex = 12;
+            this.btnSwap.Text = "Swap";
+            this.btnSwap.UseVisualStyleBackColor = true;
+            this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 285);
+            this.Controls.Add(this.btnSwap);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -208,6 +220,7 @@ namespace Converter
         private System.Windows.Forms.ErrorProvider epValue;
         private System.Windows.Forms.ErrorProvider epTo;
         private System.Windows.Forms.ErrorProvider epFrom;
+        private System.Windows.Forms.Button btnSwap;
     }
 }
 

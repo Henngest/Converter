@@ -67,5 +67,27 @@ namespace Converter
             }
         }
 
+        private void btnSwap_Click(object sender, EventArgs e)
+        {
+            if (cbFrom.SelectedIndex == -1 || cbTo.SelectedIndex == -1)
+            {
+                epFrom.SetError(cbFrom, "Field required");
+                epTo.SetError(cbTo, "Field required");
+                return;
+            }
+            else
+            {
+                epFrom.SetError(cbFrom, "");
+                epTo.SetError(cbTo, "");
+            }
+            int tempIndex;
+            string tempValue;
+            tempIndex = cbTo.SelectedIndex;
+            cbTo.SelectedIndex = cbFrom.SelectedIndex;
+            cbFrom.SelectedIndex = tempIndex;
+            tempValue = tbValue.Text;
+            tbValue.Text = tbConvertedValue.Text;
+            tbConvertedValue.Text = tempValue;
+        }
     }
 }
