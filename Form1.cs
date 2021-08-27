@@ -23,8 +23,11 @@ namespace Converter
             {
                 cbUnit.Items.Add(item);
             }
-            backgroundWorker1.RunWorkerAsync();
-
+            TimeSpan periodTimeSpan = TimeSpan.FromMinutes(1);
+            System.Threading.Timer timer = new System.Threading.Timer((e) =>
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }, null, TimeSpan.Zero, periodTimeSpan);
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
@@ -96,6 +99,7 @@ namespace Converter
 
         private async void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            Console.WriteLine("It works");
             List<Unit> listCurrencies = await currencyService.getCurrencies();
             converter.addUnits("Currency", listCurrencies);
             cbUnit.Invoke(new Action(() => {

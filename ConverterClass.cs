@@ -62,6 +62,8 @@ namespace Converter
         }
         public void addUnits(string name, List<Unit> listUnits)
         {
+            if (unitsDictionary.ContainsKey(name))
+                unitsDictionary.Remove(name);
             unitsDictionary.Add(name, listUnits);
         }
         public double convert(String fromUnit, String toUnit, double value, string selectedUnitType) 
