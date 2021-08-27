@@ -100,16 +100,26 @@ namespace Converter
         private async void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             lbStatus.Invoke(new Action(() => {
-                lbStatus.Text = "Loading currencies... ";
+                lbStatus.Text = "Loading currencies...";
                 lbStatus.ForeColor = Color.Yellow;
             }));
-            List<Unit> listCurrencies = await currencyService.getCurrencies();
-            converter.addUnits("Currency", listCurrencies);
-            cbUnit.Invoke(new Action(() => {
-                cbUnit.Items.Clear();
-                foreach (String item in converter.getUnitTypes())
-                    cbUnit.Items.Add(item);
-            }));
+            try
+            {
+                List<Unit> listCurrencies = await currencyService.getCurrencies();
+                converter.addUnits("Currency", listCurrencies);
+                cbUnit.Invoke(new Action(() => {
+                    cbUnit.Items.Clear();
+                    foreach (String item in converter.getUnitTypes())
+                        cbUnit.Items.Add(item);
+                }));
+            }
+            catch
+            {
+                lbStatus.Invoke(new Action(() => {
+                    lbStatus.Text = "Loading currencies failed";
+                    lbStatus.ForeColor = Color.Red;
+                }));
+            }
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
