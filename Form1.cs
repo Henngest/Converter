@@ -25,6 +25,32 @@ namespace Converter
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
+            double i;
+            if (cbUnit.SelectedIndex == -1)
+            {
+                epUnit.SetError(cbUnit, "Field required");
+                return;
+            }
+            else
+                epUnit.SetError(cbUnit, "");
+            if (cbFrom.SelectedIndex == -1 || cbTo.SelectedIndex == -1)
+            {
+                epFrom.SetError(cbFrom, "Field required");
+                epTo.SetError(cbTo, "Field required");
+                return;
+            }
+            else
+            {
+                epFrom.SetError(cbFrom, "");
+                epTo.SetError(cbTo, "");
+            }
+            if (!double.TryParse(tbValue.Text, out i))
+            {
+                epValue.SetError(tbValue, "Insert a number");
+                return;
+            }
+            else
+                epValue.SetError(tbValue, "");
             String selectedUnitType = cbUnit.SelectedItem.ToString();
             double result = converter.convert(cbFrom.SelectedItem.ToString(), cbTo.SelectedItem.ToString(), Convert.ToDouble(tbValue.Text), selectedUnitType);
             tbConvertedValue.Text = result.ToString();
@@ -40,5 +66,6 @@ namespace Converter
                 cbTo.Items.Add(item);
             }
         }
+
     }
 }

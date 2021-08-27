@@ -1,4 +1,4 @@
-
+﻿
 namespace Converter
 {
     partial class Form1
@@ -29,6 +29,7 @@ namespace Converter
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbValue = new System.Windows.Forms.TextBox();
             this.tbConvertedValue = new System.Windows.Forms.TextBox();
             this.btnConvert = new System.Windows.Forms.Button();
@@ -40,6 +41,14 @@ namespace Converter
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.epUnit = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epValue = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epTo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epFrom = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.epUnit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epTo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epFrom)).BeginInit();
             this.SuspendLayout();
             // 
             // tbValue
@@ -97,11 +106,11 @@ namespace Converter
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 94);
+            this.label1.Location = new System.Drawing.Point(192, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Choose a unit";
+            this.label1.Text = "Choose a type of unit";
             // 
             // label2
             // 
@@ -139,6 +148,22 @@ namespace Converter
             this.label5.TabIndex = 11;
             this.label5.Text = "To";
             // 
+            // epUnit
+            // 
+            this.epUnit.ContainerControl = this;
+            // 
+            // epValue
+            // 
+            this.epValue.ContainerControl = this;
+            // 
+            // epTo
+            // 
+            this.epTo.ContainerControl = this;
+            // 
+            // epFrom
+            // 
+            this.epFrom.ContainerControl = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +182,10 @@ namespace Converter
             this.Controls.Add(this.tbValue);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.epUnit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epTo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epFrom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,6 +204,10 @@ namespace Converter
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider epUnit;
+        private System.Windows.Forms.ErrorProvider epValue;
+        private System.Windows.Forms.ErrorProvider epTo;
+        private System.Windows.Forms.ErrorProvider epFrom;
     }
 }
 
