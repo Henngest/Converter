@@ -99,7 +99,10 @@ namespace Converter
 
         private async void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Console.WriteLine("It works");
+            lbStatus.Invoke(new Action(() => {
+                lbStatus.Text = "Loading currencies... ";
+                lbStatus.ForeColor = Color.Yellow;
+            }));
             List<Unit> listCurrencies = await currencyService.getCurrencies();
             converter.addUnits("Currency", listCurrencies);
             cbUnit.Invoke(new Action(() => {
@@ -107,6 +110,15 @@ namespace Converter
                 foreach (String item in converter.getUnitTypes())
                     cbUnit.Items.Add(item);
             }));
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lbStatus.Invoke(new Action(() => {
+                lbStatus.Text = "Loaded currencies at " + DateTime.Now.ToString("hh:mm:ss");
+                lbStatus.ForeColor = Color.Green;
+            }));
+            
         }
     }
 }

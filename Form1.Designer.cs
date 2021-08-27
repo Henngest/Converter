@@ -50,6 +50,7 @@ namespace Converter
             this.lbTitle = new System.Windows.Forms.Label();
             this.lbSubtitle = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.lbStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epTo)).BeginInit();
@@ -202,12 +203,24 @@ namespace Converter
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.ForeColor = System.Drawing.Color.DarkRed;
+            this.lbStatus.Location = new System.Drawing.Point(321, 253);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(188, 23);
+            this.lbStatus.TabIndex = 15;
+            this.lbStatus.Text = "No currencies loaded";
+            this.lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 285);
+            this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.lbSubtitle);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.btnSwap);
@@ -255,6 +268,7 @@ namespace Converter
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Label lbSubtitle;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label lbStatus;
     }
 }
 
