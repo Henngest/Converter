@@ -60,6 +60,10 @@ namespace Converter
         {
             return unitsDictionary[unitType];
         }
+        public void addUnits(string name, List<Unit> listUnits)
+        {
+            unitsDictionary.Add(name, listUnits);
+        }
         public double convert(String fromUnit, String toUnit, double value, string selectedUnitType) 
         {
             double tempMultiplier = 0;

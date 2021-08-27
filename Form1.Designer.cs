@@ -49,6 +49,7 @@ namespace Converter
             this.btnSwap = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
             this.lbSubtitle = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.epUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epTo)).BeginInit();
@@ -198,6 +199,10 @@ namespace Converter
             this.lbSubtitle.TabIndex = 14;
             this.lbSubtitle.Text = "by Filip Danilovski";
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +254,7 @@ namespace Converter
         private System.Windows.Forms.Button btnSwap;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Label lbSubtitle;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

@@ -13,14 +13,18 @@ namespace Converter
     public partial class Form1 : Form
     {
         private ConverterClass converter;
+        private CurrencyService currencyService;
         public Form1()
         {
             InitializeComponent();
             converter = new ConverterClass();
+            currencyService = new CurrencyService();
             foreach(String item in converter.getUnitTypes())
             {
                 cbUnit.Items.Add(item);
             }
+            backgroundWorker1.RunWorkerAsync();
+
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
@@ -88,6 +92,17 @@ namespace Converter
             tempValue = tbValue.Text;
             tbValue.Text = tbConvertedValue.Text;
             tbConvertedValue.Text = tempValue;
+        }
+
+        private async void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            List<Unit> listCurrencies = await currencyService.getCurrencies();
+            converter.addUnits("Currency", listCurrencies);
+            cbUnit.Invoke(new Action(() => {
+                cbUnit.Items.Clear();
+                foreach (String item in converter.getUnitTypes())
+                    cbUnit.Items.Add(item);
+            }));
         }
     }
 }
