@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Converter
 {
-    class Unit
+    public class Unit
     {
         public string name { get; set; }
         public double multiplier { get; set; }
@@ -19,6 +19,17 @@ namespace Converter
         public override string ToString()
         {
             return name;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is null)
+                return false;
+            if (Object.ReferenceEquals(this, obj))
+                return true;
+            if (this.GetType() != obj.GetType())
+                return false;
+            Unit castedObject = (Unit)obj;
+            return this.name == castedObject.name && this.multiplier == castedObject.multiplier;
         }
     }
 }

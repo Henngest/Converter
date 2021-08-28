@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Converter
 {
-    class ConverterClass
+    public class ConverterClass
     {
         private Dictionary<String, List<Unit>> unitsDictionary;
         private Unit unitObject;
