@@ -108,9 +108,15 @@ namespace Converter
                 List<Unit> listCurrencies = await currencyService.getCurrencies();
                 converter.addUnits("Currency", listCurrencies);
                 cbUnit.Invoke(new Action(() => {
+                    int tempUnitIndex = cbUnit.SelectedIndex;
+                    int tempFromIndex = cbFrom.SelectedIndex;
+                    int tempToIndex = cbTo.SelectedIndex;
                     cbUnit.Items.Clear();
                     foreach (String item in converter.getUnitTypes())
                         cbUnit.Items.Add(item);
+                    cbUnit.SelectedIndex = tempUnitIndex;
+                    cbFrom.SelectedIndex = tempFromIndex;
+                    cbTo.SelectedIndex = tempToIndex;
                 }));
             }
             catch
