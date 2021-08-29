@@ -13,28 +13,21 @@ namespace ConverterTest
         {
             ConverterClass converterClass = new ConverterClass();
             List<String> receivedList = converterClass.getUnitTypes();
-            List<String> expectedList = new List<String> { "Length", "Weight" };
-            CollectionAssert.AreEqual(expectedList, receivedList);
+            List<String> expectedList = new List<String> { "Length", "Weight", "Data Transfer Rate", "Time" };
+            CollectionAssert.AreEquivalent(expectedList, receivedList);
         }
         [TestMethod]
         public void GetUnits_ReturnsCorrectList()
         {
             ConverterClass converterClass = new ConverterClass();
-            Unit unitObject = new Unit();
             List<Unit> receivedList = converterClass.getUnits("Weight");
             List<Unit> expectedList = new List<Unit>();
-            unitObject = new Unit("mg", 0.000001);
-            expectedList.Add(unitObject);
-            unitObject = new Unit("g", 0.001);
-            expectedList.Add(unitObject);
-            unitObject = new Unit("kg", 1);
-            expectedList.Add(unitObject);
-            unitObject = new Unit("t", 1000);
-            expectedList.Add(unitObject);
-            unitObject = new Unit("lbs", 0.453592);
-            expectedList.Add(unitObject);
-            unitObject = new Unit("oz", 0.0283495);
-            expectedList.Add(unitObject);
+            expectedList.Add(new Unit("mg", 0.000001));
+            expectedList.Add(new Unit("g", 0.001));
+            expectedList.Add(new Unit("kg", 1));
+            expectedList.Add(new Unit("t", 1000));
+            expectedList.Add(new Unit("lbs", 0.453592));
+            expectedList.Add(new Unit("oz", 0.0283495));
             CollectionAssert.AreEqual(expectedList, receivedList);
         }
         [TestMethod]
